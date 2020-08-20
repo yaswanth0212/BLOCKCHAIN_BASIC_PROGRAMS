@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>EMPLOYEE_CONTRACT</title>
+<script>
+        function testVariable() {
+        
+            var n=document.getElementById("name1").value;
+  			var i=document.getElementById("id1").value;
+  			var s1=document.getElementById("sal_1").value;
+			var s2=document.getElementById("sal_2").value;
+			var s3=document.getElementById("sal_3").value;
+			var s4=document.getElementById("sal_4").value;
+            document.getElementById("get_name").innerHTML = n.bold().fontcolor("red");
+			document.getElementById("get_id").innerHTML = i.bold().fontcolor("red");
+			document.getElementById("get_sal1").innerHTML = s1.bold().fontcolor("red");
+			document.getElementById("get_sal2").innerHTML = s2.bold().fontcolor("red");
+			document.getElementById("get_sal3").innerHTML = s3.bold().fontcolor("red");
+			document.getElementById("get_sal4").innerHTML = s4.bold().fontcolor("red");
+             
+        }
+    </script>
+	 <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+    </script>
+</head>
+
+    <body style="background-color:powderblue;""max-width:100%;height:auto;>
+        <h1>EMPLOYEE_DETAILS & TOTAL_SALARY_COUNT </h1>
+        <h3>PROVIDE_EMPLOYEE_DETAILS</h3>
+		
+    <form position="center">
+
+		<table style="width:25%">
+		  <tr>
+			<td><label for="name1">EMPLOYEE_NAME:</label></td>
+			<td><input type="text" id="name1" name="name1"></td>
+		  </tr>
+		  <tr>
+			<td><label for="id1">EMPLOYEE_Id:</label></td>
+			<td><input type="text" id="id1" name="id1"></td>
+		  </tr>
+		  <tr>
+			<td><label for="sal_1">FIRST_QUARTER_SALARY:</label></td>
+			<td><input type="text" id="sal_1" name="sal_1"></td>
+		  </tr>
+		  <tr>
+			<td><label for="sal_2">SECOND_QUARTER_SALARY:</label></td>
+			<td><input type="text" id="sal_2" name="sal_2"></td>
+		  </tr><tr>
+			<td><label for="sal_3">THIRD_QUARTER_SALARY:</label></td>
+			<td><input type="text" id="sal_3" name="sal_3"></td>
+		  </tr><tr>
+			<td><label for="sal_4">FOURTH_QUARTER_SALARY:</label></td>
+			<td><input type="text" id="sal_4" name="sal_4"></td>
+		  </tr><tr>
+		  <td><input type="button" onclick="testVariable()" value="Add Details"></td>
+		  </tr>
+		</table>
+		<form>
+		<h3>DISPLAYING_DETAILS:</h3>
+		<table style="width:25%">
+		  <tr>
+			<td>NAME:</td>
+			<td><b><div id="get_name"></b></td>
+		  </tr>
+            <tr>
+			<td>ID:</td>
+			<td><b><div id="get_id"></b></td>
+		  </tr>
+		  
+		  <tr>
+			<td>FIRST_QUARTER_SALARY:</td>
+			<td><b><div id="get_sal1"></b></td>
+		  </tr>
+		  <tr>
+			<td>SECOND_QUARTER_SALARY:</td>
+			<td><b><div id="get_sal2"></b></td>
+		  </tr>
+		  <tr>
+			<td>THIRD_QUARTER_SALARY:</td>
+			<td><b><div id="get_sal3"></b></td>
+		  </tr>
+		  <tr>
+			<td>FOURTH_QUARTER_SALARY:</td>
+			<td><b><div id="get_sal4"></b></td>
+		  </tr>
+		</table>
+        </form>     
+        		
+	</form>
+        <h4> TRANSACTION ID: <a href=""><div id="result"></div></a></h4> 
+		<>
+        <form>
+		<h3>DISPLAYING_DETAILS:</h3>
+		<table style="width:25%">
+		<tr>
+			<td> ENTER ID:</td>
+			<td><input type="text" id="id1" name="id1"></td>
+		  </tr>
+		  <tr><td><input type="button" onclick="testVariable()" value="Get Details"></td></tr>
+		  <tr>
+			<td>NAME:</td>
+			<td><b><div id="get_name"></b></td>
+		  </tr>
+            <tr>
+			<td>ID:</td>
+			<td><b><div id="get_id"></b></td>
+		  </tr>
+		  
+		  <tr>
+			<td>FIRST_QUARTER_SALARY</td>
+			<td><b><div id="get_sal1"></b></td>
+		  </tr>
+		  <tr>
+			<td>SECOND_QUARTER_SALARY</td>
+			<td><b><div id="get_sal2"></b></td>
+		  </tr>
+		  <tr>
+			<td>THIRD_QUARTER_SALARY</td>
+			<td><b><div id="get_sal3"></b></td>
+		  </tr>
+		  <tr>
+			<td>FOURTH_QUARTER_SALARY</td>
+			<td><b><div id="get_sal4"></b></td>
+		  </tr>
+		</table>
+        </form>     
+        <h3>DISPLAY_TOTAL:</h3>
+        <form>
+		<table style="width:25%">
+		  <tr>
+			<td>NAME:</td>
+			<td><b><div id="get_name"></b></td>
+		  </tr>
+		  <tr>
+			<td>ID:</td>
+			<td><b><div id="get_id"></b></td>
+		  </tr>
+		  <tr>
+			<td>TOTAL_SALARY:</td>
+			<td><b><div id="get_total"></b></td>
+		  </tr>
+		  </table>
+        </form> 
+		</body>
+	
+</html>
