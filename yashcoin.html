@@ -572,7 +572,7 @@
         }
         function del_details() {
             var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
-            var id = document.getElementById("id1").value;
+            var id = document.getElementById("id2").value;
              var result = myContract.methods.burnMyToken(id).send(function (err, result) {
                
                 if (err) { console.log(err); }
@@ -698,7 +698,7 @@ background-repeat: no-repeat;
 		<table style="width:25%"> 
             <tr>
 			<td>ENTER_EXISTING_TOKEN_ID:</td>
-			<td><input type="text" id="id1" name="id1"></td>
+			<td><input type="text" id="id2" name="id2"></td>
 		  </tr>
 		  <tr>
 		  <td><input type="button" class="button" onclick="del_details()" value="Burn YashCoin"></td>
