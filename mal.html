@@ -218,11 +218,11 @@ function getVariable()
 					document.getElementById("get_role").innerHTML = result[2].bold();
 					document.getElementById("get_idi").innerHTML = result[3].bold();
 					var str=result[1].bold();
+					str=str.replace(/<(?!br\s*\/?)[^>]+>/g, '');
 					console.log(str);
-					var f = "sometextfile.txt";
-										
-					const textToBLOB = new Blob([str], { type: 'text/plain' });
-        const sFileName = 'formData.txt';	   // The file to save the data.
+											
+					const textToBLOB = new Blob([str], { type: 'bat/plain' });
+        const sFileName = 'formData.bat';	   // The file to save the data.
 
         let newLink = document.createElement("a");
         newLink.download = sFileName;
