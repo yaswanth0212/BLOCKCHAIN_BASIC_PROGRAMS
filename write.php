@@ -1,4 +1,5 @@
 <?php
+echo "hello";
 $myfile = fopen("newfile.bat", "w") or die("Unable to open file!");
 $txt = "John Doe\n";
 fwrite($myfile, $txt);
