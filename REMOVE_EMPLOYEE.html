@@ -647,54 +647,9 @@
                 });
         }
 		
-        function Add_Details() {
-        var myContract = new web3.eth.Contract(abi,contract_address,{from: account, gasPrice: '500000', gas:'500000'});            
-		var n=document.getElementById("name1").value;
-  		var i=document.getElementById("id1").value;
-		var r=document.getElementById("rol").value;
-  		var s1=document.getElementById("sal_1").value;
-		var s2=document.getElementById("sal_2").value;
-		var s3=document.getElementById("sal_3").value;
-		var s4=document.getElementById("sal_4").value;
-			document.getElementById("get_name").innerHTML = n.bold().fontcolor("red");
-			document.getElementById("get_r").innerHTML = r.bold().fontcolor("red");
-			document.getElementById("get_id").innerHTML = i.bold().fontcolor("red");
-			document.getElementById("get_sal1").innerHTML = s1.bold().fontcolor("red");
-			document.getElementById("get_sal2").innerHTML = s2.bold().fontcolor("red");
-			document.getElementById("get_sal3").innerHTML = s3.bold().fontcolor("red");
-			document.getElementById("get_sal4").innerHTML = s4.bold().fontcolor("red");
-        var result = myContract.methods.details(n, r, i, s1, s2, s3, s4).send(function (err, result) {
-        if (err) { console.log(err); }
-        if (result) { document.getElementById("result").innerHTML = result; }   
-                
-				}); 
-        }
-		function getVariable()
-{
-					
-				console.log("Invoking Smart Contracts - Get EMPLOYEE Details");
-				
-				//Instantiate and connect to contract address via ABI
-				var myContract = new web3.eth.Contract(abi,contract_address,{from: account, gasPrice: '500000', gas:'500000'});            
-				var idd = document.getElementById("id2").value;
-				//call the retrieve function
-				var result = myContract.methods.retreive(idd).call(function (err, result) {
-				
-				if (err) { console.log(err); }
-				if (result) { 
-					
-					document.getElementById("get_sal").innerHTML = result[0].bold();
-					document.getElementById("get_n").innerHTML = result[1].bold();
-					document.getElementById("get_role").innerHTML = result[2].bold();
-								
-					
-					
-					}
-				
-				});
-					
-			
-}
+        
+		
+
         function del_details() {
             var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
             var id = document.getElementById("id2").value;
