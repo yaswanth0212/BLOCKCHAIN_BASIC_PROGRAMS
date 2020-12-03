@@ -87,7 +87,7 @@ contract retailar is ERC721 {
     }
    
  //function Calling for sending product details
- function addProductDetails(uint productid,string memory foodtype,string memory foodname,string memory foodplace,string memory foodpesticides,string memory producersname,string memory retailarname ) public {
+ function addProductDetails(uint256 productid,string memory foodtype,string memory foodname,string memory foodplace,string memory foodpesticides,string memory producersname,string memory retailarname ) public {
    sm.food_type = foodtype;
    sm.food_name=foodname;
    sm.food_place=foodplace;
