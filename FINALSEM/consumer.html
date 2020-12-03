@@ -135,6 +135,7 @@ background-repeat: no-repeat;
 <script>
         function testVariable() {
         var myContract = new web3.eth.Contract(abi,contract_address,{from: account, gasPrice: '500000', gas:'500000'});            
+		var productid=document.getElementById("product_Id").value;
 		var foodtype=document.getElementById("food_type").value;
 		var foodname=document.getElementById("food_name").value;
   		var foodplace=document.getElementById("food_place").value;
@@ -143,7 +144,7 @@ background-repeat: no-repeat;
 		var retailarname=document.getElementById("retailar_name").value;
 		var consumername=document.getElementById("consumer_name").value;
 
-  		var result = myContract.methods.addProductDetails(foodtype,foodname,foodplace,foodpesticides,producername).send(function (err, result) {
+  		var result = myContract.methods.addProductDetails(productid,foodtype,foodname,foodplace,foodpesticides,producername,retailarname,consumername).send(function (err, result) {
         if (err) { console.log(err); }
         if (result) { document.getElementById("result").innerHTML = result; }   
                 
@@ -185,54 +186,6 @@ background-repeat: no-repeat;
 			
 			});
 			var abi = [
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "productid",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "foodtype",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "foodname",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "foodplace",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "foodpesticides",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "producersname",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "retailarname",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "consumername",
-				"type": "string"
-			}
-		],
-		"name": "addProductDetails",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -289,125 +242,6 @@ background-repeat: no-repeat;
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "fileId",
-				"type": "uint256"
-			}
-		],
-		"name": "burnMyToken",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "fileId",
-				"type": "uint256"
-			}
-		],
-		"name": "mintMyToken",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bytes",
-				"name": "_data",
-				"type": "bytes"
-			}
-		],
-		"name": "safeTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "operator",
-				"type": "address"
-			},
-			{
-				"internalType": "bool",
-				"name": "approved",
-				"type": "bool"
-			}
-		],
-		"name": "setApprovalForAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -435,10 +269,53 @@ background-repeat: no-repeat;
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "productid",
+				"type": "uint256"
 			},
+			{
+				"internalType": "string",
+				"name": "foodtype",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "foodname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "foodplace",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "foodpesticides",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "producersname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "retailarname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "consumername",
+				"type": "string"
+			}
+		],
+		"name": "addProductDetails",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "address",
 				"name": "to",
@@ -450,7 +327,7 @@ background-repeat: no-repeat;
 				"type": "uint256"
 			}
 		],
-		"name": "transferFrom",
+		"name": "approve",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -485,6 +362,19 @@ background-repeat: no-repeat;
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			}
+		],
+		"name": "burnMyToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -593,6 +483,25 @@ background-repeat: no-repeat;
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "fileId",
+				"type": "uint256"
+			}
+		],
+		"name": "mintMyToken",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "name",
 		"outputs": [
@@ -635,6 +544,75 @@ background-repeat: no-repeat;
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -769,9 +747,32 @@ background-repeat: no-repeat;
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ]
-var contract_address='0x39A551BC40A2f03fd4AC5206f476121679262df0'
+var contract_address='0xf7e56940aA5a4486ff27E17342B86ef0891D03C0'
 
 		function getDetails()
 {
@@ -837,6 +838,10 @@ function del_details() {
     <form position="center">
 
 		<table style="width:43%">
+		<tr>
+			<td><label for="name1">PRODUCT_ID:</label></td>
+			<td><input type="text" id="product_Id" name="name1"></td>
+		  </tr>
 		  <tr>
 			<td><label for="name1">FOOD_TYPE:</label></td>
 			<td><input type="text" id="food_type" name="name1"></td>
@@ -883,8 +888,7 @@ function del_details() {
 	
 	<br>
        <form>
-		<h3 style="font-size:25px;color: black;
-			text-shadow: -0px 0 black, 0 0px black, 0px 0 black, 0 -1px black;">CURRENT  FILE DETAILS</h3>
+		
 		<table>
 	<!--	<tr>
 			<td> ENTER ID:</td>
@@ -899,18 +903,21 @@ function del_details() {
         
         
 			<table style="width:25%">
-			<tr>
-				<td div style="color: black;
-			text-shadow: -0px 0 black, 0 0px black, 0px 0 black, 0 -1px black;">ENTER PRODUCT ID:</td>
-				<td><input type="number" id="fid" name="fid">
-			</tr>
+			
+		
 		 </table>
 		 
 		</form>
 		</table>
 			<form>
 			<table>
+				
+			<tr>
 			
+				<td div style="color: black;
+			text-shadow: -0px 0 black, 0 0px black, 0px 0 black, 0 -1px black;">ENTER PRODUCT ID:</td>
+				<td><input type="number" id="fid" name="fid">
+			</tr>
 			  <tr>
 			  <td>FOOD_TYPE:</td>
 				<td><b><div style="font-size:25px;color: yellow;
@@ -953,10 +960,12 @@ function del_details() {
 			  
 			</form> 
 
-						
-		        <h2>REMOVE PRODUCT</h2>
+				
     <form style="width:25%">
+	
 		<table> 
+				
+		        <h2>REMOVE PRODUCT</h2>
             <tr>
 			<td>ENTER_EXISTING_PRODUCT_ID:</td>
 			<td><input type="text" id="id2" name="id2"></td>
@@ -971,10 +980,7 @@ function del_details() {
 			
 			</div>
 			
-			<br>
-		<input type="button" class="button4" onclick="myFunction3()" value="Click here to redirect IPFS-PAGE">
-			<br>
-	<input type="button" class="button1" onclick="myFunction4()" value="HOME">
+
 	
 			</body>
 		
