@@ -7,7 +7,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
  
 
 
-contract retailar is ERC721 {
+contract consumer is ERC721 {
     
      
     address owner; // varaible declaration for storing address of the owner
@@ -88,7 +88,7 @@ contract retailar is ERC721 {
     }
    
  //function Calling for sending product details
- function addProductDetails(uint productid,string memory foodtype,string memory foodname,string memory foodplace,string memory foodpesticides,string memory producersname,string memory retailarname,string memory consumername) public {
+ function addProductDetails(uint256 productid,string memory foodtype,string memory foodname,string memory foodplace,string memory foodpesticides,string memory producersname,string memory retailarname,string memory consumername) public {
    sm.food_type = foodtype;
    sm.food_name=foodname;
    sm.food_place=foodplace;
