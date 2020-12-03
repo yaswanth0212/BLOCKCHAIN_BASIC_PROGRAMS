@@ -787,8 +787,8 @@ function getproductId()
 				if (err) { console.log(err); }
 				if (result) { 
 					
-					document.getElementById("get_food_type").innerHTML = result[0]bold();
-					document.getElementById("get_food_name").innerHTML = result[1]bold();
+					document.getElementById("get_food_type").innerHTML = result[0].bold();
+					document.getElementById("get_food_name").innerHTML = result[1].bold();
 					document.getElementById("get_food_place").innerHTML = result[2].bold();
 					document.getElementById("get_food_pesticides").innerHTML = result[3].bold();
 					document.getElementById("get_producer_name").innerHTML = result[4].bold();
@@ -828,7 +828,7 @@ function del_details() {
   <div class="row">
   <div class="column">     
         <h3 style="font-size:25px;color: black;
-			text-shadow: -0px 0 black, 0 0px black, 0px 0 black, 0 -1px black;">ENTER FSC DETAILS</h3>
+			text-shadow: -0px 0 black, 0 0px black, 0px 0 black, 0 -1px black;">ENTER FILE DETAILS</h3>
 		
     <form position="center">
 
@@ -958,8 +958,6 @@ function del_details() {
 </form>
 			
 			</div>
-			
-			<br>
 		
 	
 			</body>
